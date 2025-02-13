@@ -1,6 +1,7 @@
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/turtle"))()
 
 local Window = library:Window("Fisch Config")
+local Window2 = library:Window("")
 
 Window:Button("Webhook 1", function()
 -- Konfigurasi langsung di sini
@@ -94,6 +95,114 @@ Window:Button("Webhook 5", function()
 -- Konfigurasi langsung di sini
 local config = [[
 {"Auto Spin Crate":false,"Auto Equip Rod":false,"Auto Buy Totem":false,"Reduce Lag":false,"Hide Notification":false,"Choose Zone Event  ":"","Choose Zone Fishing":"Kraken Pool","Auto Chiseler":false,"Auto Claim Crab Cage":false,"Count Buy":"","Auto Tap Loading Screen":false,"Until Shiny":false,"Infinite Jump":false,"Choose Totem Delay":"","Until Sparkling":false,"Choose List Rod":"","Unrender Players Crab Cage":false,"Webhook Caught":true,"Anti-Staff":false,"Auto Use Totem Delay":false,"Enable Walkspeed":false,"Delay To Use Totem":"4","Auto Buy Luck":false,"Remove Fog":false,"Auto Lantern Keeper [$500]":false,"Unrender All Tool":true,"Amount Buy":"","Choose Crate  ":"","Auto Claim Advent Calendar":false,"Auto Get Heaven's Rod":false,"ESP Player":false,"Auto Collect Meteor":false,"CTRL + Click to Teleport":false,"Auto Favourite All":false,"Auto Accept Trade":false,"Auto Enchant Altar":false,"Choose Buy Shop ":"","Auto Get Sunken Treasure":false,"Prevent Perfect Catches":false,"Auto Buy Desolate Crates":false,"ESP Event Zone":false,"Set Speed":"","Anti-Swim":false,"Infinite Oxygen":true,"Instant Bobber":false,"ESP Zones":false,"Choose NPCs":"","Ping Message/ID":"","Fish Name   ":"","Auto Bestiary Map":false,"Count Buy  ":"","Auto Shake":true,"Choose Rarity":[""],"Auto UnFavourite All":false,"Auto Rod":false,"Give Fish Name":"","Freeze Body":true,"Use Totem At Day":"","Choose Enchant":"","Sell Fish Name":"","Fish Name         ":"","Choose Totem  ":"","Allow Use Equip":false,"Auto Farm Event":false,"Auto Nuke Minigame":false,"Lock Position":false,"Delay To Buy Totem":"4","Auto Trade Player":false,"Tool Name   ":"","Choose Bestiary Map":"","Auto Use Nuke":false,"Auto Sell Fish":false,"Ignore Favourited":false,"Disable Inventory UI":false,"Auto Place Crab Cage":false,"Auto Use Totem":false,"Auto Reconnect":false,"Choose Rod ":"","Job ID":"","Notification Spawned Event Zone":false,"Full Bright":false,"Auto Sell In Hand":false,"Fish Name ":"","Choose Totem":"","Auto Buy Relic":false,"Hide Identity":false,"Prevent Temperature":true,"Auto Buy Crab Cage":false,"Walk On Water":false,"Auto Equip Bait":false,"Webhook Caught Rarity":false,"Auto Buy Ancient Crates":false,"Choose Island":"","Auto Lantern Keeper [$1000]":false,"Auto Use Totem Night/Day":false,"Auto Activate Tool":false,"Auto Favourite":false,"Allow Ping On Ping Message/ID":false,"Farm Reel Mode":"","Choose Player Trade":"","Choose Mutation":[""],"Boost FPS":false,"ESP Bobber":false,"Choose Zone Event":"","Auto UnFavourite":false,"Bypass Gameplay Paused":false,"Auto Meteor (Fully)":false,"Show Screen White":false,"Auto Angler Quests":false,"Auto Appraise":false,"Choose Weight Name":[""],"ESP Island":false,"Webhook URL":"https://discord.com/api/webhooks/1338169517695565897/67iaJ9pyhyuJrobsTS-RIDxPvWIkYjUv9S3DSPjTtaT1X6TnB9VJZ7ibYfOf6eiakSRs","Webhook Stats":false,"Delay To Send":"","Auto Collect Fragment":false,"Choose Bait":"","Auto Teleport To Zone":false,"Auto Sell All":false,"Auto Summon Megalodon":false,"Choose Interactable":"","Auto Farm Zone":true,"Auto Fix Treasure Map":false,"Auto Pierre Quests":false,"Use Totem At Night":"","Auto Teleport To Mode":false,"Auto Buy Moosewood Crates":false,"Auto Cast":true,"Show Screen Black":false,"Auto Get Treasure Chest":false,"Auto Fillionaire":false,"Teleport Mode":"","No Clip":false,"Auto Buy Bait Crate":false,"Auto Give To Player":false,"Auto Prevent Crab Cage":false,"Auto Reel":true,"Auto Equip Random Bait":false,"Auto Get Crystal":false,"Auto Nuke (Fully)":false}
+
+]]
+
+-- Hapus folder lama dan buat yang baru
+if isfolder("SpeedHubX") then
+    delfolder("SpeedHubX")
+end
+makefolder("SpeedHubX")
+
+-- Simpan konfigurasi ke file
+writefile("SpeedHubX/Fisch_V5.json", config)
+print("✅ File Fisch_V5.json berhasil dibuat!")
+library:Destroy()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
+end)
+
+Window2:Button("Webhook 6", function()
+-- Konfigurasi langsung di sini
+local config = [[
+{"Auto Spin Crate":false,"Auto Equip Rod":false,"Auto Buy Totem":false,"Reduce Lag":false,"Hide Notification":false,"Choose Zone Event  ":"","Choose Zone Fishing":"Kraken Pool","Auto Chiseler":false,"Auto Claim Crab Cage":false,"Count Buy":"","Auto Tap Loading Screen":false,"Until Shiny":false,"Infinite Jump":false,"Choose Totem Delay":"","Until Sparkling":false,"Choose List Rod":"","Unrender Players Crab Cage":false,"Webhook Caught":true,"Anti-Staff":false,"Auto Use Totem Delay":false,"Enable Walkspeed":false,"Delay To Use Totem":"4","Auto Buy Luck":false,"Remove Fog":false,"Auto Lantern Keeper [$500]":false,"Unrender All Tool":true,"Amount Buy":"","Choose Crate  ":"","Auto Claim Advent Calendar":false,"Auto Get Heaven's Rod":false,"ESP Player":false,"Auto Collect Meteor":false,"CTRL + Click to Teleport":false,"Auto Favourite All":false,"Auto Accept Trade":false,"Auto Enchant Altar":false,"Choose Buy Shop ":"","Auto Get Sunken Treasure":false,"Prevent Perfect Catches":false,"Auto Buy Desolate Crates":false,"ESP Event Zone":false,"Set Speed":"","Anti-Swim":false,"Infinite Oxygen":true,"Instant Bobber":false,"ESP Zones":false,"Choose NPCs":"","Ping Message/ID":"","Fish Name   ":"","Auto Bestiary Map":false,"Count Buy  ":"","Auto Shake":true,"Choose Rarity":[""],"Auto UnFavourite All":false,"Auto Rod":false,"Give Fish Name":"","Freeze Body":true,"Use Totem At Day":"","Choose Enchant":"","Sell Fish Name":"","Fish Name         ":"","Choose Totem  ":"","Allow Use Equip":false,"Auto Farm Event":false,"Auto Nuke Minigame":false,"Lock Position":false,"Delay To Buy Totem":"4","Auto Trade Player":false,"Tool Name   ":"","Choose Bestiary Map":"","Auto Use Nuke":false,"Auto Sell Fish":false,"Ignore Favourited":false,"Disable Inventory UI":false,"Auto Place Crab Cage":false,"Auto Use Totem":false,"Auto Reconnect":false,"Choose Rod ":"","Job ID":"","Notification Spawned Event Zone":false,"Full Bright":false,"Auto Sell In Hand":false,"Fish Name ":"","Choose Totem":"","Auto Buy Relic":false,"Hide Identity":false,"Prevent Temperature":true,"Auto Buy Crab Cage":false,"Walk On Water":false,"Auto Equip Bait":false,"Webhook Caught Rarity":false,"Auto Buy Ancient Crates":false,"Choose Island":"","Auto Lantern Keeper [$1000]":false,"Auto Use Totem Night/Day":false,"Auto Activate Tool":false,"Auto Favourite":false,"Allow Ping On Ping Message/ID":false,"Farm Reel Mode":"","Choose Player Trade":"","Choose Mutation":[""],"Boost FPS":false,"ESP Bobber":false,"Choose Zone Event":"","Auto UnFavourite":false,"Bypass Gameplay Paused":false,"Auto Meteor (Fully)":false,"Show Screen White":false,"Auto Angler Quests":false,"Auto Appraise":false,"Choose Weight Name":[""],"ESP Island":false,"Webhook URL":"https://discord.com/api/webhooks/1339536163828138005/9Hijhy-cBBrgBctuQuJfA-GesI0aQlsPalPCqlJNg4J8tVgfcGU5SvLlGac7KzImbOSQ","Webhook Stats":false,"Delay To Send":"","Auto Collect Fragment":false,"Choose Bait":"","Auto Teleport To Zone":false,"Auto Sell All":false,"Auto Summon Megalodon":false,"Choose Interactable":"","Auto Farm Zone":true,"Auto Fix Treasure Map":false,"Auto Pierre Quests":false,"Use Totem At Night":"","Auto Teleport To Mode":false,"Auto Buy Moosewood Crates":false,"Auto Cast":true,"Show Screen Black":false,"Auto Get Treasure Chest":false,"Auto Fillionaire":false,"Teleport Mode":"","No Clip":false,"Auto Buy Bait Crate":false,"Auto Give To Player":false,"Auto Prevent Crab Cage":false,"Auto Reel":true,"Auto Equip Random Bait":false,"Auto Get Crystal":false,"Auto Nuke (Fully)":false}
+
+]]
+
+-- Hapus folder lama dan buat yang baru
+if isfolder("SpeedHubX") then
+    delfolder("SpeedHubX")
+end
+makefolder("SpeedHubX")
+
+-- Simpan konfigurasi ke file
+writefile("SpeedHubX/Fisch_V5.json", config)
+print("✅ File Fisch_V5.json berhasil dibuat!")
+library:Destroy()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
+end)
+
+Window2:Label("")
+
+Window2:Button("Webhook 7", function()
+-- Konfigurasi langsung di sini
+local config = [[
+{"Auto Spin Crate":false,"Auto Equip Rod":false,"Auto Buy Totem":false,"Reduce Lag":false,"Hide Notification":false,"Choose Zone Event  ":"","Choose Zone Fishing":"Kraken Pool","Auto Chiseler":false,"Auto Claim Crab Cage":false,"Count Buy":"","Auto Tap Loading Screen":false,"Until Shiny":false,"Infinite Jump":false,"Choose Totem Delay":"","Until Sparkling":false,"Choose List Rod":"","Unrender Players Crab Cage":false,"Webhook Caught":true,"Anti-Staff":false,"Auto Use Totem Delay":false,"Enable Walkspeed":false,"Delay To Use Totem":"4","Auto Buy Luck":false,"Remove Fog":false,"Auto Lantern Keeper [$500]":false,"Unrender All Tool":true,"Amount Buy":"","Choose Crate  ":"","Auto Claim Advent Calendar":false,"Auto Get Heaven's Rod":false,"ESP Player":false,"Auto Collect Meteor":false,"CTRL + Click to Teleport":false,"Auto Favourite All":false,"Auto Accept Trade":false,"Auto Enchant Altar":false,"Choose Buy Shop ":"","Auto Get Sunken Treasure":false,"Prevent Perfect Catches":false,"Auto Buy Desolate Crates":false,"ESP Event Zone":false,"Set Speed":"","Anti-Swim":false,"Infinite Oxygen":true,"Instant Bobber":false,"ESP Zones":false,"Choose NPCs":"","Ping Message/ID":"","Fish Name   ":"","Auto Bestiary Map":false,"Count Buy  ":"","Auto Shake":true,"Choose Rarity":[""],"Auto UnFavourite All":false,"Auto Rod":false,"Give Fish Name":"","Freeze Body":true,"Use Totem At Day":"","Choose Enchant":"","Sell Fish Name":"","Fish Name         ":"","Choose Totem  ":"","Allow Use Equip":false,"Auto Farm Event":false,"Auto Nuke Minigame":false,"Lock Position":false,"Delay To Buy Totem":"4","Auto Trade Player":false,"Tool Name   ":"","Choose Bestiary Map":"","Auto Use Nuke":false,"Auto Sell Fish":false,"Ignore Favourited":false,"Disable Inventory UI":false,"Auto Place Crab Cage":false,"Auto Use Totem":false,"Auto Reconnect":false,"Choose Rod ":"","Job ID":"","Notification Spawned Event Zone":false,"Full Bright":false,"Auto Sell In Hand":false,"Fish Name ":"","Choose Totem":"","Auto Buy Relic":false,"Hide Identity":false,"Prevent Temperature":true,"Auto Buy Crab Cage":false,"Walk On Water":false,"Auto Equip Bait":false,"Webhook Caught Rarity":false,"Auto Buy Ancient Crates":false,"Choose Island":"","Auto Lantern Keeper [$1000]":false,"Auto Use Totem Night/Day":false,"Auto Activate Tool":false,"Auto Favourite":false,"Allow Ping On Ping Message/ID":false,"Farm Reel Mode":"","Choose Player Trade":"","Choose Mutation":[""],"Boost FPS":false,"ESP Bobber":false,"Choose Zone Event":"","Auto UnFavourite":false,"Bypass Gameplay Paused":false,"Auto Meteor (Fully)":false,"Show Screen White":false,"Auto Angler Quests":false,"Auto Appraise":false,"Choose Weight Name":[""],"ESP Island":false,"Webhook URL":"https://discord.com/api/webhooks/1339536652158369812/6aC2rswavDUf_FVa3sCA0HBVXZIOfMq2jPbi8URBtnLCZYc7953fPB6f4d4On0wanlix","Webhook Stats":false,"Delay To Send":"","Auto Collect Fragment":false,"Choose Bait":"","Auto Teleport To Zone":false,"Auto Sell All":false,"Auto Summon Megalodon":false,"Choose Interactable":"","Auto Farm Zone":true,"Auto Fix Treasure Map":false,"Auto Pierre Quests":false,"Use Totem At Night":"","Auto Teleport To Mode":false,"Auto Buy Moosewood Crates":false,"Auto Cast":true,"Show Screen Black":false,"Auto Get Treasure Chest":false,"Auto Fillionaire":false,"Teleport Mode":"","No Clip":false,"Auto Buy Bait Crate":false,"Auto Give To Player":false,"Auto Prevent Crab Cage":false,"Auto Reel":true,"Auto Equip Random Bait":false,"Auto Get Crystal":false,"Auto Nuke (Fully)":false}
+
+]]
+
+-- Hapus folder lama dan buat yang baru
+if isfolder("SpeedHubX") then
+    delfolder("SpeedHubX")
+end
+makefolder("SpeedHubX")
+
+-- Simpan konfigurasi ke file
+writefile("SpeedHubX/Fisch_V5.json", config)
+print("✅ File Fisch_V5.json berhasil dibuat!")
+library:Destroy()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
+end)
+
+Window2:Label("")
+
+Window2:Button("Webhook 8", function()
+-- Konfigurasi langsung di sini
+local config = [[
+{"Auto Spin Crate":false,"Auto Equip Rod":false,"Auto Buy Totem":false,"Reduce Lag":false,"Hide Notification":false,"Choose Zone Event  ":"","Choose Zone Fishing":"Kraken Pool","Auto Chiseler":false,"Auto Claim Crab Cage":false,"Count Buy":"","Auto Tap Loading Screen":false,"Until Shiny":false,"Infinite Jump":false,"Choose Totem Delay":"","Until Sparkling":false,"Choose List Rod":"","Unrender Players Crab Cage":false,"Webhook Caught":true,"Anti-Staff":false,"Auto Use Totem Delay":false,"Enable Walkspeed":false,"Delay To Use Totem":"4","Auto Buy Luck":false,"Remove Fog":false,"Auto Lantern Keeper [$500]":false,"Unrender All Tool":true,"Amount Buy":"","Choose Crate  ":"","Auto Claim Advent Calendar":false,"Auto Get Heaven's Rod":false,"ESP Player":false,"Auto Collect Meteor":false,"CTRL + Click to Teleport":false,"Auto Favourite All":false,"Auto Accept Trade":false,"Auto Enchant Altar":false,"Choose Buy Shop ":"","Auto Get Sunken Treasure":false,"Prevent Perfect Catches":false,"Auto Buy Desolate Crates":false,"ESP Event Zone":false,"Set Speed":"","Anti-Swim":false,"Infinite Oxygen":true,"Instant Bobber":false,"ESP Zones":false,"Choose NPCs":"","Ping Message/ID":"","Fish Name   ":"","Auto Bestiary Map":false,"Count Buy  ":"","Auto Shake":true,"Choose Rarity":[""],"Auto UnFavourite All":false,"Auto Rod":false,"Give Fish Name":"","Freeze Body":true,"Use Totem At Day":"","Choose Enchant":"","Sell Fish Name":"","Fish Name         ":"","Choose Totem  ":"","Allow Use Equip":false,"Auto Farm Event":false,"Auto Nuke Minigame":false,"Lock Position":false,"Delay To Buy Totem":"4","Auto Trade Player":false,"Tool Name   ":"","Choose Bestiary Map":"","Auto Use Nuke":false,"Auto Sell Fish":false,"Ignore Favourited":false,"Disable Inventory UI":false,"Auto Place Crab Cage":false,"Auto Use Totem":false,"Auto Reconnect":false,"Choose Rod ":"","Job ID":"","Notification Spawned Event Zone":false,"Full Bright":false,"Auto Sell In Hand":false,"Fish Name ":"","Choose Totem":"","Auto Buy Relic":false,"Hide Identity":false,"Prevent Temperature":true,"Auto Buy Crab Cage":false,"Walk On Water":false,"Auto Equip Bait":false,"Webhook Caught Rarity":false,"Auto Buy Ancient Crates":false,"Choose Island":"","Auto Lantern Keeper [$1000]":false,"Auto Use Totem Night/Day":false,"Auto Activate Tool":false,"Auto Favourite":false,"Allow Ping On Ping Message/ID":false,"Farm Reel Mode":"","Choose Player Trade":"","Choose Mutation":[""],"Boost FPS":false,"ESP Bobber":false,"Choose Zone Event":"","Auto UnFavourite":false,"Bypass Gameplay Paused":false,"Auto Meteor (Fully)":false,"Show Screen White":false,"Auto Angler Quests":false,"Auto Appraise":false,"Choose Weight Name":[""],"ESP Island":false,"Webhook URL":"https://discord.com/api/webhooks/1339536814272282716/O__GDOLza8NxomK1CScTIFHfoi6Old01Es0hXbdD8BjklnGAajED82jvtfKhjOk-gwPD","Webhook Stats":false,"Delay To Send":"","Auto Collect Fragment":false,"Choose Bait":"","Auto Teleport To Zone":false,"Auto Sell All":false,"Auto Summon Megalodon":false,"Choose Interactable":"","Auto Farm Zone":true,"Auto Fix Treasure Map":false,"Auto Pierre Quests":false,"Use Totem At Night":"","Auto Teleport To Mode":false,"Auto Buy Moosewood Crates":false,"Auto Cast":true,"Show Screen Black":false,"Auto Get Treasure Chest":false,"Auto Fillionaire":false,"Teleport Mode":"","No Clip":false,"Auto Buy Bait Crate":false,"Auto Give To Player":false,"Auto Prevent Crab Cage":false,"Auto Reel":true,"Auto Equip Random Bait":false,"Auto Get Crystal":false,"Auto Nuke (Fully)":false}
+
+]]
+
+-- Hapus folder lama dan buat yang baru
+if isfolder("SpeedHubX") then
+    delfolder("SpeedHubX")
+end
+makefolder("SpeedHubX")
+
+-- Simpan konfigurasi ke file
+writefile("SpeedHubX/Fisch_V5.json", config)
+print("✅ File Fisch_V5.json berhasil dibuat!")
+library:Destroy()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
+end)
+
+Window2:Label("")
+
+Window2:Button("Webhook 9", function()
+-- Konfigurasi langsung di sini
+local config = [[
+{"Auto Spin Crate":false,"Auto Equip Rod":false,"Auto Buy Totem":false,"Reduce Lag":false,"Hide Notification":false,"Choose Zone Event  ":"","Choose Zone Fishing":"Kraken Pool","Auto Chiseler":false,"Auto Claim Crab Cage":false,"Count Buy":"","Auto Tap Loading Screen":false,"Until Shiny":false,"Infinite Jump":false,"Choose Totem Delay":"","Until Sparkling":false,"Choose List Rod":"","Unrender Players Crab Cage":false,"Webhook Caught":true,"Anti-Staff":false,"Auto Use Totem Delay":false,"Enable Walkspeed":false,"Delay To Use Totem":"4","Auto Buy Luck":false,"Remove Fog":false,"Auto Lantern Keeper [$500]":false,"Unrender All Tool":true,"Amount Buy":"","Choose Crate  ":"","Auto Claim Advent Calendar":false,"Auto Get Heaven's Rod":false,"ESP Player":false,"Auto Collect Meteor":false,"CTRL + Click to Teleport":false,"Auto Favourite All":false,"Auto Accept Trade":false,"Auto Enchant Altar":false,"Choose Buy Shop ":"","Auto Get Sunken Treasure":false,"Prevent Perfect Catches":false,"Auto Buy Desolate Crates":false,"ESP Event Zone":false,"Set Speed":"","Anti-Swim":false,"Infinite Oxygen":true,"Instant Bobber":false,"ESP Zones":false,"Choose NPCs":"","Ping Message/ID":"","Fish Name   ":"","Auto Bestiary Map":false,"Count Buy  ":"","Auto Shake":true,"Choose Rarity":[""],"Auto UnFavourite All":false,"Auto Rod":false,"Give Fish Name":"","Freeze Body":true,"Use Totem At Day":"","Choose Enchant":"","Sell Fish Name":"","Fish Name         ":"","Choose Totem  ":"","Allow Use Equip":false,"Auto Farm Event":false,"Auto Nuke Minigame":false,"Lock Position":false,"Delay To Buy Totem":"4","Auto Trade Player":false,"Tool Name   ":"","Choose Bestiary Map":"","Auto Use Nuke":false,"Auto Sell Fish":false,"Ignore Favourited":false,"Disable Inventory UI":false,"Auto Place Crab Cage":false,"Auto Use Totem":false,"Auto Reconnect":false,"Choose Rod ":"","Job ID":"","Notification Spawned Event Zone":false,"Full Bright":false,"Auto Sell In Hand":false,"Fish Name ":"","Choose Totem":"","Auto Buy Relic":false,"Hide Identity":false,"Prevent Temperature":true,"Auto Buy Crab Cage":false,"Walk On Water":false,"Auto Equip Bait":false,"Webhook Caught Rarity":false,"Auto Buy Ancient Crates":false,"Choose Island":"","Auto Lantern Keeper [$1000]":false,"Auto Use Totem Night/Day":false,"Auto Activate Tool":false,"Auto Favourite":false,"Allow Ping On Ping Message/ID":false,"Farm Reel Mode":"","Choose Player Trade":"","Choose Mutation":[""],"Boost FPS":false,"ESP Bobber":false,"Choose Zone Event":"","Auto UnFavourite":false,"Bypass Gameplay Paused":false,"Auto Meteor (Fully)":false,"Show Screen White":false,"Auto Angler Quests":false,"Auto Appraise":false,"Choose Weight Name":[""],"ESP Island":false,"Webhook URL":"https://discord.com/api/webhooks/1339537021600927806/t6nX_cDDLUhEU5B2y4wd5b_0QrxZ7ESBiWDJ4fi1pQND2yYWfQlMaUljlAbZq0VCL9qD","Webhook Stats":false,"Delay To Send":"","Auto Collect Fragment":false,"Choose Bait":"","Auto Teleport To Zone":false,"Auto Sell All":false,"Auto Summon Megalodon":false,"Choose Interactable":"","Auto Farm Zone":true,"Auto Fix Treasure Map":false,"Auto Pierre Quests":false,"Use Totem At Night":"","Auto Teleport To Mode":false,"Auto Buy Moosewood Crates":false,"Auto Cast":true,"Show Screen Black":false,"Auto Get Treasure Chest":false,"Auto Fillionaire":false,"Teleport Mode":"","No Clip":false,"Auto Buy Bait Crate":false,"Auto Give To Player":false,"Auto Prevent Crab Cage":false,"Auto Reel":true,"Auto Equip Random Bait":false,"Auto Get Crystal":false,"Auto Nuke (Fully)":false}
+
+]]
+
+-- Hapus folder lama dan buat yang baru
+if isfolder("SpeedHubX") then
+    delfolder("SpeedHubX")
+end
+makefolder("SpeedHubX")
+
+-- Simpan konfigurasi ke file
+writefile("SpeedHubX/Fisch_V5.json", config)
+print("✅ File Fisch_V5.json berhasil dibuat!")
+library:Destroy()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
+end)
+
+Window2:Label("")
+
+Window2:Button("Webhook 10", function()
+-- Konfigurasi langsung di sini
+local config = [[
+{"Auto Spin Crate":false,"Auto Equip Rod":false,"Auto Buy Totem":false,"Reduce Lag":false,"Hide Notification":false,"Choose Zone Event  ":"","Choose Zone Fishing":"Kraken Pool","Auto Chiseler":false,"Auto Claim Crab Cage":false,"Count Buy":"","Auto Tap Loading Screen":false,"Until Shiny":false,"Infinite Jump":false,"Choose Totem Delay":"","Until Sparkling":false,"Choose List Rod":"","Unrender Players Crab Cage":false,"Webhook Caught":true,"Anti-Staff":false,"Auto Use Totem Delay":false,"Enable Walkspeed":false,"Delay To Use Totem":"4","Auto Buy Luck":false,"Remove Fog":false,"Auto Lantern Keeper [$500]":false,"Unrender All Tool":true,"Amount Buy":"","Choose Crate  ":"","Auto Claim Advent Calendar":false,"Auto Get Heaven's Rod":false,"ESP Player":false,"Auto Collect Meteor":false,"CTRL + Click to Teleport":false,"Auto Favourite All":false,"Auto Accept Trade":false,"Auto Enchant Altar":false,"Choose Buy Shop ":"","Auto Get Sunken Treasure":false,"Prevent Perfect Catches":false,"Auto Buy Desolate Crates":false,"ESP Event Zone":false,"Set Speed":"","Anti-Swim":false,"Infinite Oxygen":true,"Instant Bobber":false,"ESP Zones":false,"Choose NPCs":"","Ping Message/ID":"","Fish Name   ":"","Auto Bestiary Map":false,"Count Buy  ":"","Auto Shake":true,"Choose Rarity":[""],"Auto UnFavourite All":false,"Auto Rod":false,"Give Fish Name":"","Freeze Body":true,"Use Totem At Day":"","Choose Enchant":"","Sell Fish Name":"","Fish Name         ":"","Choose Totem  ":"","Allow Use Equip":false,"Auto Farm Event":false,"Auto Nuke Minigame":false,"Lock Position":false,"Delay To Buy Totem":"4","Auto Trade Player":false,"Tool Name   ":"","Choose Bestiary Map":"","Auto Use Nuke":false,"Auto Sell Fish":false,"Ignore Favourited":false,"Disable Inventory UI":false,"Auto Place Crab Cage":false,"Auto Use Totem":false,"Auto Reconnect":false,"Choose Rod ":"","Job ID":"","Notification Spawned Event Zone":false,"Full Bright":false,"Auto Sell In Hand":false,"Fish Name ":"","Choose Totem":"","Auto Buy Relic":false,"Hide Identity":false,"Prevent Temperature":true,"Auto Buy Crab Cage":false,"Walk On Water":false,"Auto Equip Bait":false,"Webhook Caught Rarity":false,"Auto Buy Ancient Crates":false,"Choose Island":"","Auto Lantern Keeper [$1000]":false,"Auto Use Totem Night/Day":false,"Auto Activate Tool":false,"Auto Favourite":false,"Allow Ping On Ping Message/ID":false,"Farm Reel Mode":"","Choose Player Trade":"","Choose Mutation":[""],"Boost FPS":false,"ESP Bobber":false,"Choose Zone Event":"","Auto UnFavourite":false,"Bypass Gameplay Paused":false,"Auto Meteor (Fully)":false,"Show Screen White":false,"Auto Angler Quests":false,"Auto Appraise":false,"Choose Weight Name":[""],"ESP Island":false,"Webhook URL":"https://discord.com/api/webhooks/1339537314115878933/z02YTQnEvallRujl34aeAsX2YU7xIE3J5CAHY65U-tBsqD8TcXZlOCtbkyiEa1_f7hnG","Webhook Stats":false,"Delay To Send":"","Auto Collect Fragment":false,"Choose Bait":"","Auto Teleport To Zone":false,"Auto Sell All":false,"Auto Summon Megalodon":false,"Choose Interactable":"","Auto Farm Zone":true,"Auto Fix Treasure Map":false,"Auto Pierre Quests":false,"Use Totem At Night":"","Auto Teleport To Mode":false,"Auto Buy Moosewood Crates":false,"Auto Cast":true,"Show Screen Black":false,"Auto Get Treasure Chest":false,"Auto Fillionaire":false,"Teleport Mode":"","No Clip":false,"Auto Buy Bait Crate":false,"Auto Give To Player":false,"Auto Prevent Crab Cage":false,"Auto Reel":true,"Auto Equip Random Bait":false,"Auto Get Crystal":false,"Auto Nuke (Fully)":false}
 
 ]]
 
