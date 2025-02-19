@@ -28,7 +28,7 @@ local function createButton(window, index)
             "Auto Chiseler":false,
             "Auto Claim Crab Cage":false,
             "Count Buy":"",
-            "Auto Tap Loading Screen":false,
+            "Auto Tap Loading Screen":true,
             "Select Zones":"Kraken Pool",
             "Until Shiny":false,
             "Infinite Jump":false,
