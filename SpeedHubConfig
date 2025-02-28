@@ -115,7 +115,7 @@ local function createButton(window, index)
             "Auto Activate Tool":false,
             "Auto Favourite":false,
             "Allow Ping On Ping Message/ID":false,
-            "Farm Shake Version":"V2",
+            "Farm Shake Version":"V1",
             "Farm Reel Mode":"Faster",
             "Choose Mutation":[""],
             "Boost FPS":false,
