@@ -19,8 +19,6 @@ local configs = {
 local function createButton(window, index)
     window:Button("Webhook " .. index, function()
         local config = [[{
-            "Farm Shake Version":"V1",
-            "Super Instant Reel":true,
             "Auto Spin Crate":false,
             "Auto Angler Quests":false,
             "Auto Buy Totem":false,
@@ -117,6 +115,7 @@ local function createButton(window, index)
             "Auto Activate Tool":false,
             "Auto Favourite":false,
             "Allow Ping On Ping Message/ID":false,
+            "Farm Shake Version":"V1",
             "Farm Reel Mode":"Faster",
             "Choose Mutation":[""],
             "Boost FPS":false,
@@ -155,6 +154,7 @@ local function createButton(window, index)
             "Prevent Perfect Catches":false,
             "Auto Give To Player":false,
             "Auto Prevent Crab Cage":false,
+            "Super Instant Reel":true,
             "Auto Get Crystal":false,
             "Auto Equip Random Bait":false,
             "Auto Reel":true,
