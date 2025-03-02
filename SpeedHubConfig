@@ -29,7 +29,7 @@ local function createButton(window, index)
             "Auto Claim Crab Cage":false,
             "Count Buy":"",
             "Auto Tap Loading Screen":true,
-            "Select Zones":"Kraken Pool",
+            "Select Zones":"Calm Zone",
             "Until Shiny":false,
             "Infinite Jump":false,
             "Choose Totem Delay":"",
