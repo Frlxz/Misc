@@ -7,7 +7,7 @@ local WindUI = loadstring(game:HttpGet("https://tree-hub.vercel.app/api/UI/WindU
 -- Window
 local Window = WindUI:CreateWindow({
     Title = "Funky Friday", -- UI Title
-    Icon = "door-open", -- Url or rbxassetid or lucide
+    Icon = "circle-check-big", -- Url or rbxassetid or lucide
     Author = "Nadir & Wally", -- Author & Creator
     Size = UDim2.fromOffset(100, 100), -- UI Size
     Transparent = false, -- UI Transparency
