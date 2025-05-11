@@ -14,7 +14,7 @@ local link = "https://discord.gg/Nvhb3EnMDX"
 WindUI:Popup({
     Title = "Funky Friday Update",
     Icon = "info",
-    Content = "⚠️ The script is temporarily unusable.\n\nThe script is currently being updated\ndue to a recent Funky Friday game update.\n\nJoin our Discord to get the latest updates:\n" .. link,
+    Content = "⚠️ The script is temporarily unusable.\n\nThe script is currently being updated\ndue to a recent Funky Friday game update.\n\nJoin our Discord to get the latest info:\n" .. link,
     Buttons = {
         {
             Title = "Continue",
