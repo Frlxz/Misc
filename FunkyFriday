@@ -30,7 +30,7 @@ CreditsTab:Button({
 })
 CreditsTab:Paragraph({
     Title = "Author",
-    Desc = "",
+    Desc = "Nadir & Nioxsantana",
 })
 
 _G.auto = false
