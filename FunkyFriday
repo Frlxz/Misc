@@ -1,12 +1,14 @@
-local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
-local PlayerName = game.Players.LocalPlayer.DisplayName
+local Players = game:GetService("Players")
+local VirtualInputManager = game:GetService("VirtualInputManager")
+local player = Players.LocalPlayer
 
--- UI
+local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
+local PlayerName = player.DisplayName
+
 local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
 
--- Window
 local Window = WindUI:CreateWindow({
-    Title = "Testing",
+    Title = "Nadir Hub │ " .. GameName,
     Icon = "circle-user-round",
     Author = PlayerName,
     Size = UDim2.fromOffset(100, 100),
@@ -15,51 +17,46 @@ local Window = WindUI:CreateWindow({
     SideBarWidth = 150,
 })
 
--- Tabs
 local MainTab = Window:Tab({ Title = "Main", Icon = "house" })
 Window:SelectTab(1)
-
 local CreditsTab = Window:Tab({ Title = "Credits", Icon = "user-pen" })
 
--- Credits
 CreditsTab:Button({
     Title = "Discord Server",
+    Desc = "Link invite Nadir Hub",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Nadir3709/Credits/main/Discord"))()
     end,
 })
-
--- Auto Player
-MainTab:Section({ 
-    Title = "Main",
-    TextXAlignment = "Left"
+CreditsTab:Paragraph({
+    Title = "Author",
+    Desc = "",
 })
 
-local VirtualInputManager = game:GetService("VirtualInputManager")
-local Players = game:GetService("Players")
-local player = Players.LocalPlayer
-local Side, keymap, key1, key2, key3, key4, key5, key6, key7, key8, key9
 _G.auto = false
-_G.Delay = 0
-_G.Mode = "None"
+_G.Delay = 0.005
+_G.Mode = "Static"
+
+local Side
+local holding = {}
 
 local function CheckSide()
-    pcall(function ()
+    pcall(function()
         local rootPart = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
         local minDistToLeft, minDistToRight = math.huge, math.huge
 
         for _, stage in pairs(workspace.Map.Stages:GetChildren()) do
             if stage:FindFirstChild("Teams") then
-                local partLeft = stage.Teams:FindFirstChild("Left")
-                local partRight = stage.Teams:FindFirstChild("Right")
+                local left = stage.Teams:FindFirstChild("Left")
+                local right = stage.Teams:FindFirstChild("Right")
 
-                if partLeft then
-                    local dist = (rootPart.Position - partLeft.Position).magnitude
+                if left then
+                    local dist = (rootPart.Position - left.Position).Magnitude
                     if dist < minDistToLeft then minDistToLeft = dist end
                 end
 
-                if partRight then
-                    local dist = (rootPart.Position - partRight.Position).magnitude
+                if right then
+                    local dist = (rootPart.Position - right.Position).Magnitude
                     if dist < minDistToRight then minDistToRight = dist end
                 end
             end
@@ -67,19 +64,6 @@ local function CheckSide()
 
         Side = minDistToLeft < minDistToRight and "Left" or "Right"
     end)
-end
-
-local function autoplay(children, keyCode)
-    for _, note in pairs(children) do
-        if note:IsA("Frame") and note.Position.Y.Scale > (0.4 + 1e-9) + _G.Delay then
-            coroutine.wrap(function()
-                VirtualInputManager:SendKeyEvent(true, keyCode, false, game)
-                while note.Parent do task.wait() end
-                VirtualInputManager:SendKeyEvent(false, keyCode, false, game)
-            end)()
-            break
-        end
-    end
 end
 
 MainTab:Toggle({
@@ -104,8 +88,38 @@ MainTab:Toggle({
                     }
 
                     local keys = {key1, key2, key3, key4, key5, key6, key7, key8, key9}
-                    for i, col in ipairs(columns) do
-                        autoplay(col, keys[i])
+
+                    for i, notes in ipairs(columns) do
+                        local key = keys[i]
+                        if key and not holding[key] then
+                            for _, note in ipairs(notes) do
+                                if note:IsA("Frame") and note.Visible and note.Position.Y.Scale > (0.2 + _G.Delay) then
+                                    coroutine.wrap(function()
+                                        local tail = note:FindFirstChildWhichIsA("Frame")
+                                        holding[key] = true
+                                        VirtualInputManager:SendKeyEvent(true, key, false, game)
+
+                                        if tail then
+                                            local startY = tail.AbsolutePosition.Y
+                                            local earlyReleaseDistance = 50
+                                            local waitUntil = startY - earlyReleaseDistance
+
+                                            while _G.auto and note:IsDescendantOf(game) do
+                                                if not tail:IsDescendantOf(game) then break end
+                                                if tail.AbsolutePosition.Y < waitUntil then break end
+                                                task.wait()
+                                            end
+                                        else
+                                            task.wait(0.04)
+                                        end
+
+                                        VirtualInputManager:SendKeyEvent(false, key, false, game)
+                                        holding[key] = false
+                                    end)()
+                                    break
+                                end
+                            end
+                        end
                     end
                 end)
                 task.wait()
@@ -114,43 +128,13 @@ MainTab:Toggle({
     end
 })
 
-MainTab:Dropdown({
-    Title = "Delay Mode",
-    Values = {"Use Delay", "Random Delay"},
-    Value = "Use Delay",
-    Callback = function(mode)
-        _G.Mode = mode
-    end,
-})
-
-MainTab:Slider({
-    Title = "Note ms Delay",
-    Min = -0.35,
-    Max = 0.35,
-    Default = 0,
-    Rounding = 2,
-    Callback = function(val)
-        if _G.Mode == "Use Delay" then
-            _G.Delay = val
-        else
-            task.spawn(function()
-                while _G.Mode == "Random Delay" do
-                    _G.Delay = math.random() * val
-                    task.wait()
-                end
-            end)
-        end
-    end,
-})
-
--- Update keymap & side detection
 spawn(function()
     while task.wait() do
         if player.PlayerGui.GameGui.Windows.SongSelector.Visible then
             CheckSide()
         end
         pcall(function()
-            keymap = player.PlayerGui.Window.Game.Fields[Side].Inner
+            local keymap = player.PlayerGui.Window.Game.Fields[Side].Inner
             key1 = Enum.KeyCode[keymap.Lane1.Labels.Label.Text.text]
             key2 = Enum.KeyCode[keymap.Lane2.Labels.Label.Text.text]
             key3 = Enum.KeyCode[keymap.Lane3.Labels.Label.Text.text]
