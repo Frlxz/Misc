@@ -6,7 +6,7 @@ local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/rel
 
 -- Window
 local Window = WindUI:CreateWindow({
-    Title = "Nadir Hub │ " .. GameName,
+    Title = "Testing",
     Icon = "circle-user-round",
     Author = PlayerName,
     Size = UDim2.fromOffset(100, 100),
@@ -24,15 +24,9 @@ local CreditsTab = Window:Tab({ Title = "Credits", Icon = "user-pen" })
 -- Credits
 CreditsTab:Button({
     Title = "Discord Server",
-    Desc = "Link invite Nadir Hub",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Nadir3709/Credits/main/Discord"))()
     end,
-})
-
-CreditsTab:Paragraph({
-    Title = "Author",
-    Desc = "",
 })
 
 -- Auto Player
@@ -47,7 +41,7 @@ local player = Players.LocalPlayer
 local Side, keymap, key1, key2, key3, key4, key5, key6, key7, key8, key9
 _G.auto = false
 _G.Delay = 0
-_G.Mode = "Static"
+_G.Mode = "None"
 
 local function CheckSide()
     pcall(function ()
@@ -118,6 +112,35 @@ MainTab:Toggle({
             end
         end
     end
+})
+
+MainTab:Dropdown({
+    Title = "Delay Mode",
+    Values = {"Use Delay", "Random Delay"},
+    Value = "Use Delay",
+    Callback = function(mode)
+        _G.Mode = mode
+    end,
+})
+
+MainTab:Slider({
+    Title = "Note ms Delay",
+    Min = -0.35,
+    Max = 0.35,
+    Default = 0,
+    Rounding = 2,
+    Callback = function(val)
+        if _G.Mode == "Use Delay" then
+            _G.Delay = val
+        else
+            task.spawn(function()
+                while _G.Mode == "Random Delay" do
+                    _G.Delay = math.random() * val
+                    task.wait()
+                end
+            end)
+        end
+    end,
 })
 
 -- Update keymap & side detection
