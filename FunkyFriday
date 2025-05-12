@@ -1,33 +1,142 @@
-local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
-local NotificationHolder = loadstring(game:HttpGet("https://raw.githubusercontent.com/Nadir3709/Notification/main/NotificationHolder"))()
-local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/Nadir3709/Notification/main/Notification"))()
+local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
+local PlayerName = game.Players.LocalPlayer.DisplayName
 
-local function Notify(title, text, time)
-    Notification:Notify(
-        { Title = title, Description = text },
-        { OutlineColor = Color3.fromRGB(100, 100, 100), Time = time or 5, Type = "default" }
-    )
+-- UI
+local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
+
+-- Window
+local Window = WindUI:CreateWindow({
+    Title = "Nadir Hub │ " .. GameName,
+    Icon = "circle-user-round",
+    Author = PlayerName,
+    Size = UDim2.fromOffset(100, 100),
+    Transparent = false,
+    Theme = "Dark",
+    SideBarWidth = 150,
+})
+
+-- Tabs
+local MainTab = Window:Tab({ Title = "Main", Icon = "house" })
+Window:SelectTab(1)
+
+local CreditsTab = Window:Tab({ Title = "Credits", Icon = "user-pen" })
+
+-- Credits
+CreditsTab:Button({
+    Title = "Discord Server",
+    Desc = "Link invite Nadir Hub",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Nadir3709/Credits/main/Discord"))()
+    end,
+})
+
+CreditsTab:Paragraph({
+    Title = "Author",
+    Desc = "",
+})
+
+-- Auto Player
+MainTab:Section({ 
+    Title = "Main",
+    TextXAlignment = "Left"
+})
+
+local VirtualInputManager = game:GetService("VirtualInputManager")
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+local Side, keymap, key1, key2, key3, key4, key5, key6, key7, key8, key9
+_G.auto = false
+_G.Delay = 0
+_G.Mode = "Static"
+
+local function CheckSide()
+    pcall(function ()
+        local rootPart = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
+        local minDistToLeft, minDistToRight = math.huge, math.huge
+
+        for _, stage in pairs(workspace.Map.Stages:GetChildren()) do
+            if stage:FindFirstChild("Teams") then
+                local partLeft = stage.Teams:FindFirstChild("Left")
+                local partRight = stage.Teams:FindFirstChild("Right")
+
+                if partLeft then
+                    local dist = (rootPart.Position - partLeft.Position).magnitude
+                    if dist < minDistToLeft then minDistToLeft = dist end
+                end
+
+                if partRight then
+                    local dist = (rootPart.Position - partRight.Position).magnitude
+                    if dist < minDistToRight then minDistToRight = dist end
+                end
+            end
+        end
+
+        Side = minDistToLeft < minDistToRight and "Left" or "Right"
+    end)
 end
 
-local link = "https://discord.gg/Nvhb3EnMDX"
+local function autoplay(children, keyCode)
+    for _, note in pairs(children) do
+        if note:IsA("Frame") and note.Position.Y.Scale > (0.4 + 1e-9) + _G.Delay then
+            coroutine.wrap(function()
+                VirtualInputManager:SendKeyEvent(true, keyCode, false, game)
+                while note.Parent do task.wait() end
+                VirtualInputManager:SendKeyEvent(false, keyCode, false, game)
+            end)()
+            break
+        end
+    end
+end
 
-WindUI:Popup({
-    Title = "Funky Friday Update",
-    Icon = "info",
-    Content = "⚠️ The script is temporarily unusable.\n\nThe script is currently being updated\ndue to a recent Funky Friday game update.\n\nJoin our Discord to get the latest info:\n" .. link,
-    Buttons = {
-        {
-            Title = "Continue",
-            Icon = "arrow-right",
-            Callback = function()
-                if setclipboard then
-                    setclipboard(link)
-                    Notify("Copied!", "Discord invite copied to clipboard.", 5)
-                else
-                    Notify("Clipboard Unsupported", "Executor doesn't support setclipboard.", 5)
-                end
-            end,
-            Variant = "Primary",
-        }
-    }
+MainTab:Toggle({
+    Title = "Auto Player",
+    Default = false,
+    Callback = function(state)
+        _G.auto = state
+        if state then
+            while _G.auto do
+                pcall(function()
+                    local ap = player.PlayerGui.Window.Game.Fields[Side].Inner
+                    local columns = {
+                        ap.Lane1.Notes:GetChildren(),
+                        ap.Lane2.Notes:GetChildren(),
+                        ap.Lane3.Notes:GetChildren(),
+                        ap.Lane4.Notes:GetChildren(),
+                        (ap:FindFirstChild("Lane5") and ap.Lane5.Notes:GetChildren()) or {},
+                        (ap:FindFirstChild("Lane6") and ap.Lane6.Notes:GetChildren()) or {},
+                        (ap:FindFirstChild("Lane7") and ap.Lane7.Notes:GetChildren()) or {},
+                        (ap:FindFirstChild("Lane8") and ap.Lane8.Notes:GetChildren()) or {},
+                        (ap:FindFirstChild("Lane9") and ap.Lane9.Notes:GetChildren()) or {},
+                    }
+
+                    local keys = {key1, key2, key3, key4, key5, key6, key7, key8, key9}
+                    for i, col in ipairs(columns) do
+                        autoplay(col, keys[i])
+                    end
+                end)
+                task.wait()
+            end
+        end
+    end
 })
+
+-- Update keymap & side detection
+spawn(function()
+    while task.wait() do
+        if player.PlayerGui.GameGui.Windows.SongSelector.Visible then
+            CheckSide()
+        end
+        pcall(function()
+            keymap = player.PlayerGui.Window.Game.Fields[Side].Inner
+            key1 = Enum.KeyCode[keymap.Lane1.Labels.Label.Text.text]
+            key2 = Enum.KeyCode[keymap.Lane2.Labels.Label.Text.text]
+            key3 = Enum.KeyCode[keymap.Lane3.Labels.Label.Text.text]
+            key4 = Enum.KeyCode[keymap.Lane4.Labels.Label.Text.text]
+            key5 = Enum.KeyCode[keymap.Lane5.Labels.Label.Text.text]
+            key6 = Enum.KeyCode[keymap.Lane6.Labels.Label.Text.text]
+            key7 = Enum.KeyCode[keymap.Lane7.Labels.Label.Text.text]
+            key8 = Enum.KeyCode[keymap.Lane8.Labels.Label.Text.text]
+            key9 = Enum.KeyCode[keymap.Lane9.Labels.Label.Text.text]
+        end)
+    end
+end)
