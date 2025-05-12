@@ -28,6 +28,7 @@ CreditsTab:Button({
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Nadir3709/Credits/main/Discord"))()
     end,
 })
+
 CreditsTab:Paragraph({
     Title = "Author",
     Desc = "Nadir & Nioxsantana",
@@ -126,6 +127,11 @@ MainTab:Toggle({
             end
         end
     end
+})
+
+local Paragraph = MainTab:Paragraph({
+    Title = "Auto Player Update.",
+    Desc = "Maybe there are still some bugs for auto player in other songs / long notes arrow, I will improve it later.",
 })
 
 spawn(function()
