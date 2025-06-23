@@ -1,11 +1,11 @@
 local Players = game:GetService("Players")
 local VirtualInputManager = game:GetService("VirtualInputManager")
 local player = Players.LocalPlayer
-
 local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
 local PlayerName = player.DisplayName
 
-local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
+local Version = "1.6.2"
+local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/download/" .. Version .. "/main.lua"))()
 
 local Window = WindUI:CreateWindow({
     Title = "Nadir Hub │ " .. GameName,
