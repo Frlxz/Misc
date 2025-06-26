@@ -250,7 +250,7 @@ MainTab:Toggle(
 MainTab:Paragraph(
     {
         Title = "FYI (For Your Information)",
-        Desc = "The script may not get 100% sick on certain songs."
+        Desc = "The script may not get 100% sick on certain songs.\n And please use downscroll for Auto Player."
     }
 )
 
