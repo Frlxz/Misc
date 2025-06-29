@@ -295,7 +295,7 @@ MiscTab:Button(
 -- TAB CREDITS --
 --------------------
 CreditsTab:Section({Title = "Development"})
-CreditsTab:Paragraph({Title = "Author", Desc = "- Aleoa"})
+CreditsTab:Paragraph({Title = "Author", Desc = "- Nadir"})
 CreditsTab:Paragraph({Title = "UI Library", Desc = "- Wind UI by Footagesus"})
 CreditsTab:Paragraph({Title = "Hub", Desc = "- Skedz Hub"})
 CreditsTab:Section({Title = "Community"})
@@ -384,4 +384,4 @@ task.spawn(
     end
 )
 
-WindUI:Notify({Title = "Nadir Hub", Content = "Anti-AFK automatically activated.", Duration = 4})
+WindUI:Notify({Title = "Skedz Hub", Content = "Anti-AFK automatically activated.", Duration = 4})
